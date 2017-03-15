@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		var text = "Напишите скрипт на JS, который в заданном тексте удалит 2 символа, выбранных случайно. 1234567890 Усложнение: удалять можно только буквы в словах, а знаки пунктуации и цифры удалять нельзя." ;
+		var res = "";
+		
+		do {
+			var pos1 = randomInteger(0,text.length - 1);		
+			var c = text.charAt(pos1);
+		}while (checkRestrictedChar(c));
+		
+		do {
+			var pos2 = randomInteger(0,text.length - 1);
+			var c = text.charAt(pos2);
+		}while (pos2 == pos1 || checkRestrictedChar(c));
+				
+		for (i=0; i<text.length; i++) {
+			if (i != pos1 && i != pos2) {
+				res = res + text[i];
+			}	
+		}
+	
+	alert(res);
+	//
+	function randomInteger(min, max) {
+    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    rand = Math.round(rand);
+    return rand;
+  }
+	//
+  function checkRestrictedChar(char) {
+  	var restricted = "1234567890,.-!?:;";
+		return (restricted.indexOf(char) == -1) ? false : true ;
+  }
+
+	</script>
+</body>
+</html>
