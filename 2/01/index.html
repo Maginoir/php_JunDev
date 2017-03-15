@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		var text = "Напишите скрипт на JS, который в заданном тексте удалит два символа, выбранных случайно." ;
+		var res = "";
+		
+		var pos1 = randomInteger(0,text.length - 1);
+		
+		do {
+			pos2 = randomInteger(0,text.length - 1);
+		}while (pos2 == pos1);
+				
+		for (i=0; i<text.length; i++) {
+			if (i != pos1 && i != pos2) {
+				res = res + text[i];
+			}	
+		}
+	
+	alert(res);
+	//
+	function randomInteger(min, max) {
+    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    rand = Math.round(rand);
+    return rand;
+  }
+
+	</script>
+</body>
+</html>
